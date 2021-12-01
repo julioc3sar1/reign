@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+body,
+html{
+    margin: 0;
+    background-color: #fcfcfc;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+.container{
+    max-width: 1200px;
+    margin: auto;
+    height: inherit;
+    // padding: 15px;
+}
+.row{
+    display: flex;
+    height: 100%;
+    padding: 0 15px;
+}
+.logo{
+    align-self: center;
+}
+.button--icon{
+    padding: 0;
+    height: auto;
+    border: 0;
+    background: transparent;
+}
+select {
+    // appearance: none;
+    background-color: transparent;
+    border: solid 1px #2e2e2e;
+    border-radius: 4px;
+    height: 32px;
+    padding: 5px 12px 5px 12px;
+    margin: 0;
+    max-width: 240px;
+    outline: 0;
+    // font-family: inherit;
+    // font-size: inherit;
+    // cursor: inherit;
+    // line-height: inherit;
+  }

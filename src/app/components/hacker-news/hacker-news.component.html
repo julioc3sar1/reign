@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <section>
+            <div class="news_filter">
+                <select 
+                name="filter" 
+                id="filter" 
+                [formControl]="filter" 
+                (change)="filterNews()"
+                >
+                    <option value="angular"><img src="/assets/img/angular-logo.png"/>Angular</option>
+                    <option value="react">React</option>
+                    <option value="vue">Vue</option>
+                </select>
+                <!-- {{filter.value}} -->
+            </div>
+            <div class="news_container" *ngIf="items">
+                <app-news *ngFor="let news of items" [data]="news"></app-news>
+            </div>
+            <div *ngIf="loading">
+                <app-loader></app-loader>
+            </div>
+        </section>
+    </div>
+</div>
