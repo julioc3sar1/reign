@@ -7,6 +7,37 @@
         margin: 1rem 0;
     }
 }
+.news_sections_buttons{
+    text-align: center;
+    padding: 3rem;
+    &__container{
+        display: inline-block;
+        button{
+            color: #6a6a6a;
+            height: 30px;
+            width: 100px;
+            border: 0;
+            background-color: transparent;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border: solid 2px #d6d6d6;
+            border-radius: 2px;
+            &.all_btn{
+                border-right: 0;
+            }
+            &.faves_btn{
+                border-left: 0;
+            }
+            &.active{
+                color: #1797ff;
+                border: solid 2px #1797ff;
+            }
+            
+        }
+    }
+}
 
 @media (min-width:992px) {
     .news_container{

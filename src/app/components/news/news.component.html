@@ -1,11 +1,12 @@
-<div class="news">
+<a class="news" href="{{data.story_url}}" target="blank">
     <div class="news__info">
-        <span class="news__info__time"><img src="/assets/img/clock-icon.svg" alt="" class="icon"><small>2 hours ago by {{data.author}}</small></span>
-        <a class="news__info__title">{{data.title}}</a>
+        <span class="news__info__time"><img src="/assets/img/clock-icon.svg" alt="" class="icon"><small>{{getTimeAgo(data.created_at)}} ago by {{data.author}}</small></span>
+        <div class="news__info__title">{{data.story_title}}</div>
     </div>
     <div class="news__favorite">
-        <button class="button--icon">
-            <img src="/assets/img/favorite-icon.svg" alt="">
+        <button class="button--icon" (click)="handleFavorite($event)" [ngClass]="{'favorite':favorite}">
+            <img src="/assets/img/not-favorite-icon.svg" alt="" *ngIf="!favorite">
+            <img src="/assets/img/favorite-icon.svg" alt="" *ngIf="favorite">
         </button>
     </div>
-</div>
+</a>

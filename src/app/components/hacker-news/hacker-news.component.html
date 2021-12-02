@@ -1,6 +1,24 @@
 <div class="container">
     <div class="row">
-        <section>
+        <section
+        infinite-scroll
+        [infiniteScrollDistance]="1" 
+        (scrolled)="onScrollDown($event)"
+        >
+            <div class="news_sections_buttons">
+                <div class="news_sections_buttons__container">
+                    <button 
+                    class="all_btn"
+                    [ngClass]="{'active':section==='all'}" 
+                    (click)="section='all'"
+                    >All</button>
+                    <button 
+                    class="faves_btn"
+                    [ngClass]="{'active':section==='faves'}" 
+                    (click)="section='faves'"
+                    >My faves</button>
+                </div>
+            </div>
             <div class="news_filter">
                 <select 
                 name="filter" 
@@ -9,13 +27,29 @@
                 (change)="filterNews()"
                 >
                     <option value="angular"><img src="/assets/img/angular-logo.png"/>Angular</option>
-                    <option value="react">React</option>
-                    <option value="vue">Vue</option>
+                    <option value="reactjs">React</option>
+                    <option value="vuejs">Vue</option>
                 </select>
                 <!-- {{filter.value}} -->
             </div>
-            <div class="news_container" *ngIf="items">
-                <app-news *ngFor="let news of items" [data]="news"></app-news>
+            <div class="news_container" *ngIf="items.length>0 && section ==='all'">
+                <app-news 
+                *ngFor="let news of items" 
+                [data]="news" 
+                (MarkAsFavorite)="markAsFavorite($event)" 
+                (RemoveAsFavorite)="removeAsFavorite($event)"
+                [favorite]="isFavorite(news)"
+                ></app-news>
+            </div>
+            <!-- favoritos -->
+            <div class="news_container" *ngIf="items.length>0 && section === 'faves'">
+                <app-news 
+                *ngFor="let news of favorites" 
+                [data]="news" 
+                (MarkAsFavorite)="markAsFavorite($event)" 
+                (RemoveAsFavorite)="removeAsFavorite($event)"
+                [favorite]="isFavorite(news)"
+                ></app-news>
             </div>
             <div *ngIf="loading">
                 <app-loader></app-loader>

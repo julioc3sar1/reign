@@ -18,10 +18,6 @@ export class HackerNewsService {
 
   
   public getItems(query:string,page:number): Observable<any> {
-    return this.httpClient.get(this.url + `search?query=${query}&page=${page}`).pipe( map( res => res as any [] ) );
+    return this.httpClient.get(this.url + `search_by_date?query=${query}`).pipe( map( res => res as any [] ) );
   }
-  
-  // public getCollectionDetails(objectNumber:string): Observable<any> {
-  //   return this.httpClient.get( this.url + `collection/${objectNumber}?key=zAlxnQ0C`).pipe( map( res => res as any [] ) );
-  // }
 }

@@ -7,6 +7,7 @@ import { HackerNewsComponent } from './components/hacker-news/hacker-news.compon
 import { NewsComponent } from './components/news/news.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponent } from './components/loader/loader.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
