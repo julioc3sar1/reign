@@ -71,7 +71,9 @@ export class HackerNewsComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    const appFavorites = JSON.parse(localStorage.getItem('favorites')||'')
+    const localFavorites = localStorage.getItem('favorites')
+    const appFavorites = localFavorites!==null ? JSON.parse(localFavorites) : null
+    // console.log(appFavorites)
     const news = localStorage.getItem('news')
     
     if(news != null){
@@ -81,10 +83,10 @@ export class HackerNewsComponent implements OnInit {
       this.filter.setValue('angular')
     }
     // console.log(appFavorites)
-    if(appFavorites!=null && appFavorites.length>0){
-      this.favorites = appFavorites
-      
+    if(Array.isArray(appFavorites) && appFavorites.length>0){
+      this.favorites = appFavorites      
     }
+
     this.filterNews()
   }
 
