@@ -18,6 +18,10 @@ export class HackerNewsService {
 
   
   public getItems(query:string,page:number): Observable<any> {
-    return this.httpClient.get(this.url + `search_by_date?query=${query}`).pipe( map( res => res as any [] ) );
+    let defaultUrl=`search_by_date?query=${query}`
+    if(page){
+      defaultUrl = `search_by_date?query=${query}&page=${page}`
+    }
+    return this.httpClient.get(this.url + defaultUrl).pipe( map( res => res as any [] ) );
   }
 }
